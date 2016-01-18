@@ -1,0 +1,32 @@
+﻿template-changer
+HEAD
+	TITLE	"Template Changer v2.0.0"
+BODY
+	TAG-WHEN	|tag	"textarea id=\"pageToChange\""
+		|test	:t
+		FOR-EACH	|var	obj
+			|sequence	SORT	|var1	a
+					|var2	b
+					|sequence	YANK	|sequence	FOR-EACH-OBJECT	WHOLE-CONTENTS
+									WHEN	AND
+											NOT	EQUALS	|value1	@template
+													|value2	nil
+											NOT	EQUALS	|value1	@type
+													|value2	:css.
+											NOT	EQUALS	|value1	@type
+													|value2	:link.
+											NOT	EQUALS	|value1	@type
+													|value2	:raw-html.
+											NOT	EQUALS	|value1	id
+													|value2	:template-changer
+										AS-STRING	id
+					STRCMP	|s1	a
+						|s2	b
+			TEXT	STRING-APPEND
+					obj
+					#\Return
+	TAG-WHEN	|tag	STRING-APPEND
+				"script type=\"text/javascript\" src=\"/lib/"
+				account
+				"/template-changer-2.0.0.js\""
+		|test	:t
