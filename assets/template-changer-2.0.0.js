@@ -225,7 +225,7 @@
         }
         a.appendChild(b);
         var b = document.createElement('IMG');
-        b.src = 'https://raw.githubusercontent.com/twhitacre/template-changer-2.0/master/assets/template-monster.png';
+        b.src = 'https://raw.githubusercontent.com/twhitacre/template-changer/master/assets/template-monster.png';
         with(b.style) {
           width = '275px';
           height = '300px';
